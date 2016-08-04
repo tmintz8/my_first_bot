@@ -1,6 +1,19 @@
 class MessengerController < Messenger::MessengerController
   def webhook
-    #logic here
+
+	logger.info "Processing the request..."
+	if fb_params.first_entry.callback.message?
+	  Messenger::Client.send(
+	    Messenger::Request.new(
+	      Messenger::Elements::Text.new(text: 'some text02'),
+	      fb_params.first_entry.sender_id
+	    )
+
+	   Messenger::MessengerController::req
+	  )
+	end
+
+	#make sure to send 200 at the end
     render nothing: true, status: 200
   end
 end
