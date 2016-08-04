@@ -9,7 +9,7 @@ class MessengerController < Messenger::MessengerController
 	      fb_params.first_entry.sender_id
 	    )
 
-	   Messenger::MessengerController::req
+	   #Messenger::MessengerController::req
 	  )
 	end
 
